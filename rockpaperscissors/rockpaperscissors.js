@@ -19,18 +19,19 @@ function getComputerChoice(){
 }
 
 function getHumanChoice() {
-  let userInput = prompt("Will you choose rock, paper, or scissors?");
+  let input = prompt("Will you choose rock, paper, or scissors?");
+  let userInput = input.toLowerCase();
   // console.log(userInput);
 
-  if (userInput.toLowerCase == "rock") {
+  if (userInput == "rock") {
     return "rock"
     // console.log("You have chosen rock.");
   }
-  else if (userInput.toLowerCase == "paper") {
+  else if (userInput == "paper") {
     return "paper"
     // console.log("You have chosen paper.");
   }
-  else if (userInput.toLowerCase == "scissors") {
+  else if (userInput == "scissors") {
     return "scissors"
     // console.log("You have chosen scissors.");
   }
@@ -40,6 +41,44 @@ function getHumanChoice() {
   }
 }
 
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
 function playRound(humanSelection, computerSelection) {
-  
+  if (humanSelection === "rock" && computerSelection === "paper") {
+    computerScore++;
+    alert(`Human selected ${humanSelection} and Computer selected ${computerSelection}. \nComputer Wins!`)
+    alert(`Score is Computer: ${computerScore} : Human: ${humanScore}`)
+  } 
+  else if (humanSelection === "rock" && computerSelection === "scissors") {
+    humanScore++;
+    alert(`Human selected ${humanSelection} and Computer selected ${computerSelection}. \nHuman Wins!`)
+    alert(`Score is Computer: ${computerScore} : Human: ${humanScore}`)
+  } 
+  else if (humanSelection === "paper" && computerSelection === "scissors") {
+    computerScore++;
+    alert(`Human selected ${humanSelection} and Computer selected ${computerSelection}. \nComputer Wins!`)
+    alert(`Score is Computer: ${computerScore} : Human: ${humanScore}`)
+  } 
+  else if (humanSelection === "paper" && computerSelection === "rock") {
+    humanScore++;
+    alert(`Human selected ${humanSelection} and Computer selected ${computerSelection}. \nHuman Wins!`)
+    alert(`Score is Computer: ${computerScore} : Human: ${humanScore}`)
+  } 
+  else if (humanSelection === "scissors" && computerSelection === "rock") {
+    computerScore++;
+    alert(`Human selected ${humanSelection} and Computer selected ${computerSelection}. \nComputer Wins!`)
+    alert(`Score is Computer: ${computerScore} : Human: ${humanScore}`)
+  } 
+  else if (humanSelection === "scissors" && computerSelection === "paper") {
+    humanScore++;
+    alert(`Human selected ${humanSelection} and Computer selected ${computerSelection}. \nHuman Wins!`)
+    alert(`Score is Computer: ${computerScore} : Human: ${humanScore}`)
+  } 
+  else {
+    alert(`Human selected ${humanSelection} and Computer selected ${computerSelection}. \nIt was a tie. Try again.`)
+    playRound(humanSelection, computerSelection);
+  }
 }
+
+playRound(humanSelection, computerSelection);
