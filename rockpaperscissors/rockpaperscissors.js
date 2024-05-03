@@ -1,18 +1,24 @@
-getComputerChoice();
-getHumanChoice();
+let computerScore = getComputerChoice();
+let humanScore = getHumanChoice();
+
+console.log(computerScore);
+console.log(humanScore);
 
 function getComputerChoice(){
   let choice = Math.random();
   if (choice <= 0.33) {
-    console.log("rock");
+    return "rock"
+    // console.log("rock");
   }
   else if (choice <= 0.67) {
-    console.log("paper");
+    return "paper"
+    // console.log("paper");
   }
   else {
-    console.log("scissors");
+    return "scissors"
+    // console.log("scissors");
   }
-  console.log(choice);
+  // console.log(choice);
 }
 
 function getHumanChoice() {
@@ -20,15 +26,19 @@ function getHumanChoice() {
   // console.log(userInput);
 
   if (userInput == "rock") {
-    console.log("You have chosen rock.");
+    return "rock"
+    // console.log("You have chosen rock.");
   }
   else if (userInput == "paper") {
-    console.log("You have chosen paper.");
+    return "paper"
+    // console.log("You have chosen paper.");
   }
   else if (userInput == "scissors") {
-    console.log("You have chosen scissors.");
+    return "scissors"
+    // console.log("You have chosen scissors.");
   }
   else {
-    console.log("Please choose one of the given options.");
+    alert("Please choose one of the given options.");
+    getHumanChoice();
   }
 }
